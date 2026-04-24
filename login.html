@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Software Risk Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+
+    <main class="container login-wrapper">
+        <div class="glass-panel login-panel">
+            <header>
+                <h1 id="auth-title">Welcome Back</h1>
+                <p id="auth-sub">Sign in to access the Risk Analyzer</p>
+            </header>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="custom-input" required placeholder="you@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="custom-input" required placeholder="••••••••">
+                </div>
+                
+                <button type="submit" class="submit-btn" style="margin-top: 1.5rem;">
+                    <span id="btn-text">Log In</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+            <p class="auth-switch" id="toggle-container">Don't have an account? <a href="#" id="switch-auth">Sign Up</a></p>
+        </div>
+    </main>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            window.location.href = 'analyzer.html';
+        });
+        
+        document.getElementById('switch-auth').addEventListener('click', (e) => {
+            e.preventDefault();
+            const header = document.getElementById('auth-title');
+            const sub = document.getElementById('auth-sub');
+            const btnText = document.getElementById('btn-text');
+            const toggleContainer = document.getElementById('toggle-container');
+            const btn = e.target;
+            
+            if (header.textContent === 'Welcome Back') {
+                header.textContent = 'Create Account';
+                sub.textContent = 'Sign up to start analyzing risks';
+                btnText.textContent = 'Sign Up';
+                toggleContainer.innerHTML = 'Already have an account? <a href="#" id="switch-auth">Log In</a>';
+            } else {
+                header.textContent = 'Welcome Back';
+                sub.textContent = 'Sign in to access the Risk Analyzer';
+                btnText.textContent = 'Log In';
+                toggleContainer.innerHTML = 'Don\'t have an account? <a href="#" id="switch-auth">Sign Up</a>';
+            }
+            
+            // re-attach event listener using elegant approach
+            document.getElementById('switch-auth').addEventListener('click', arguments.callee);
+        });
+    </script>
+</body>
+</html>

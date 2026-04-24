@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Risk Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js for Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Analyzing risk parameters...</p>
+    </div>
+
+    <main class="container">
+        <div class="back-link">
+            <a href="login.html">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Logout
+            </a>
+        </div>
+
+        <header>
+            <h1>Software Risk Analyzer</h1>
+            <p>Evaluate your project across multiple risk vectors for a complete assessment.</p>
+        </header>
+
+        <div class="presets-container">
+            <h3>Select Project Profile</h3>
+            <div class="preset-buttons">
+                <button type="button" class="preset-btn" data-preset="startup">Startup MVP</button>
+                <button type="button" class="preset-btn" data-preset="enterprise">Enterprise System</button>
+                <button type="button" class="preset-btn" data-preset="student">Student Project</button>
+            </div>
+        </div>
+
+        <div class="app-content-single">
+            <form id="comprehensive-risk-form" class="glass-panel form-panel">
+                <div id="form-sections-container">
+                    <!-- Dynamic sections injected by JS -->
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="reset-btn" class="secondary-btn">Reset</button>
+                    <button type="submit" class="submit-btn" id="analyze-btn">
+                        <span>Run Comprehensive Analysis</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+
+            <div class="result-container glass-panel" id="result-container">
+                <div class="empty-state" id="empty-state">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+                    <p>Submit the form to generate your comprehensive risk report</p>
+                </div>
+
+                <div class="result-content hidden" id="result-content">
+                    <div class="result-header">
+                        <h2>Overall Assessment</h2>
+                        <button type="button" id="export-btn" class="export-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export PDF
+                        </button>
+                    </div>
+
+                    <div class="risk-level-display" id="risk-display">
+                        <span id="risk-text">Medium</span> Risk
+                    </div>
+
+                    <div class="risk-meter-container">
+                        <div class="risk-meter" id="risk-meter"></div>
+                        <div class="meter-labels">
+                            <span>Low</span>
+                            <span>Medium</span>
+                            <span>High</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+
+                    <div class="factor-breakdown" id="factor-breakdown">
+                        <!-- Dynamic factor cards injected here -->
+                    </div>
+
+                    <div class="risk-details">
+                        <h3>Detailed Analysis</h3>
+                        <p id="risk-description">Based on your parameters, the project exhibits a medium level of risk.
+                        </p>
+
+                        <h3>Recommendations</h3>
+                        <ul id="recommendations-list" class="recommendations-list">
+                            <!-- Dynamic recommendations injected here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="analyzer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Software Risk Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob shape1"></div>
+        <div class="blob shape2"></div>
+        <div class="blob shape3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Select Risk Category</h1>
+            <p>Choose the type of software risk you want to evaluate.</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <a href="analyzer.html?type=project" class="risk-card glass-panel">
+                <div class="card-icon project-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3>Project & Schedule</h3>
+                <p>Evaluate risks related to deadlines, budget constraints, team size, and schedules.</p>
+            </a>
+
+            <a href="analyzer.html?type=technical" class="risk-card glass-panel">
+                <div class="card-icon technical-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3>Technical Risk</h3>
+                <p>Assess architecture novelty, tech stack complexity, and external system dependencies.</p>
+            </a>
+
+            <a href="analyzer.html?type=business" class="risk-card glass-panel">
+                <div class="card-icon business-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3>Business & Market</h3>
+                <p>Analyze requirement volatility, stakeholder alignment, and product-market fit.</p>
+            </a>
+
+            <a href="analyzer.html?type=security" class="risk-card glass-panel">
+                <div class="card-icon security-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3>Security & Privacy</h3>
+                <p>Determine risks involving data protection, compliance strictness, and vulnerabilities.</p>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
